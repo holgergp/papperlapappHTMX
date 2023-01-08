@@ -1,0 +1,30 @@
+.app {
+    text-align: center;
+}
+
+.counter {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    place-items: center;
+    column-gap: 0.25rem;
+    grid-template-columns: 60px 60px 50px;
+}
+
+.minusSign, .plusSign {
+    cursor: auto;
+}
+
+.minusSign:hover, .plusSign:hover {
+    cursor: pointer;
+}
+
+.counterResult {
+    font-size: 40px;
+}
+.counterResult.positiveCounter {
+    background-color: greenyellow;
+}
+.counterResult.negativeCounter {
+    background-color: orangered;
+}

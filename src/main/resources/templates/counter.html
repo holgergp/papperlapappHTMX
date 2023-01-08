@@ -1,0 +1,20 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <link th:href="@{/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="app">
+    <h1>Counter</h1>
+    <div class="counter">
+        <div th:insert="fragments :: counterButtons" th:remove="tag"/>
+        <div th:insert="fragments :: counterResult" th:remove="tag"/>
+    </div>
+</div>
+</body>
+<script type="text/javascript" th:src="@{/webjars/htmx.org/dist/htmx.min.js}"></script>
+
+
+</html>
