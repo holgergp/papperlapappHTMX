@@ -52,7 +52,7 @@
          xml:space="preserve">
 <g>
 	<g>
-		<path d="M146.048,197.137l-26.431-0.043c-1.805,0-3.567,0.246-5.344,0.749c-6.416-0.848-12.865,1.29-16.829,5.545
+		<path d="M146.048,197.137l-6.431-0.043c-1.805,0-3.567,0.246-5.344,0.749c-6.416-0.848-12.865,1.29-16.829,5.545
 			c-3.28,3.524-4.814,8.219-4.428,13.571l4.283,60.034c0.838,11.806,10.217,17.793,18.793,18.464
 			c1.708,0.441,3.341,0.649,4.969,0.649c87.125,0,165.773-0.208,246.02-2.864c8.831-0.289,15.707-5.732,18.022-14.233
 			c1.056-2.615,1.492-5.459,1.289-8.449c-1.31-19.789-1.416-39.53-1.416-59.692c0-10.278-7.186-17.968-17.534-18.885
@@ -72,3 +72,25 @@
 </g>
 </svg>
 </div>
+
+<div th:fragment="form" class="form" th:remove="tag">
+
+    <form hx-post="/saveForm" hx-swap="innerHTML" hx-target="#formInput">
+        <div th:insert="fragments :: formInput" />
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+<div th:fragment="formInput" class="form" id="formInput">
+    <div th:text="${form.validating}"></div>
+    <input id="title" name="title" type="text"
+           hx-post="/validateForm"
+           th:value="${form.title}"
+           hx-trigger="keyup"
+           hx-sync="closest form:drop"
+           hx-swap="innerHTML"
+           hx-target="#formInput"
+    >
+</div>
+

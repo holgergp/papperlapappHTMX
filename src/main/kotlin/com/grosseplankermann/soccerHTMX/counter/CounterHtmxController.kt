@@ -1,4 +1,4 @@
-package com.grosseplankermann.soccerHTMX
+package com.grosseplankermann.soccerHTMX.counter
 
 import io.github.wimdeblauwe.hsbt.mvc.HtmxRequest
 import io.github.wimdeblauwe.hsbt.mvc.HxRequest

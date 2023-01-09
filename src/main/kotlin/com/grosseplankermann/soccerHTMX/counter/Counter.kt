@@ -1,4 +1,4 @@
-package com.grosseplankermann.soccerHTMX
+package com.grosseplankermann.soccerHTMX.counter
 
 data class Counter(val value: Int)
 
