@@ -78,6 +78,7 @@
     <form hx-post="/saveForm" hx-swap="innerHTML" hx-target="#formInput">
         <div th:insert="fragments :: formInput" />
         <button type="submit">Submit</button>
+        <button hx-post="/throwError">Throw Error</button>
     </form>
 </div>
 
