@@ -1,9 +1,9 @@
 <div th:fragment="counterButtons" th:remove="tag">
-    <div hx-post="/increment" hx-swap="innerHTML" hx-target="#counterResult">
-        <div th:insert="fragments :: plusSign" th:remove="tag"/>
+    <div hx-post="/counter/increment" hx-swap="innerHTML" hx-target="#counterResult">
+        <div th:insert="counterFragments :: plusSign" th:remove="tag"/>
     </div>
-    <div hx-post="/decrement" hx-swap="innerHTML" hx-target="#counterResult">
-        <div th:insert="fragments :: minusSign" th:remove="tag"/>
+    <div hx-post="/counter/decrement" hx-swap="innerHTML" hx-target="#counterResult">
+        <div th:insert="counterFragments :: minusSign" th:remove="tag"/>
     </div>
 </div>
 
@@ -72,26 +72,3 @@
 </g>
 </svg>
 </div>
-
-<div th:fragment="form" class="form" th:remove="tag">
-
-    <form hx-post="/saveForm" hx-swap="innerHTML" hx-target="#formInput">
-        <div th:insert="fragments :: formInput" />
-        <button type="submit">Submit</button>
-        <button hx-post="/throwError">Throw Error</button>
-    </form>
-</div>
-
-
-<div th:fragment="formInput" class="form" id="formInput">
-    <div th:text="${form.validating}"></div>
-    <input id="title" name="title" type="text"
-           hx-post="/validateForm"
-           th:value="${form.title}"
-           hx-trigger="keyup"
-           hx-sync="closest form:drop"
-           hx-swap="innerHTML"
-           hx-target="#formInput"
-    >
-</div>
-

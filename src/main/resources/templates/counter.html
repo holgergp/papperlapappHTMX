@@ -9,8 +9,8 @@
 <div class="app">
     <h1>Counter</h1>
     <div class="counter">
-        <div th:insert="fragments :: counterButtons" th:remove="tag"/>
-        <div th:insert="fragments :: counterResult" th:remove="tag"/>
+        <div th:insert="counterFragments :: counterButtons" th:remove="tag"/>
+        <div th:insert="counterFragments :: counterResult" th:remove="tag"/>
     </div>
 </div>
 </body>

@@ -28,3 +28,9 @@
 .counterResult.negativeCounter {
     background-color: orangered;
 }
+
+ul {
+    list-style-type: none;
+    font-weight: bold;
+    font-size: 20px;
+}

@@ -6,8 +6,10 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
+@RequestMapping("/counter")
 class CounterHtmxController(val repository: CounterHtmxRepository) {
     @GetMapping("/") // Only called on a full page refresh, not an htmx request
     fun indexRequest(model: Model): String? {
@@ -20,7 +22,7 @@ class CounterHtmxController(val repository: CounterHtmxRepository) {
     fun increment(details: HtmxRequest?, model: Model): String? {
         val counter = repository.storeIncrement()
         model.addAttribute("counter", counter)
-        return "fragments :: counterResult"
+        return "counterFragments :: counterResult"
     }
 
     @PostMapping("/decrement")
@@ -28,6 +30,6 @@ class CounterHtmxController(val repository: CounterHtmxRepository) {
     fun decrement(details: HtmxRequest?, model: Model): String? {
         val counter = repository.storeDecrement()
         model.addAttribute("counter", counter)
-        return "fragments :: counterResult"
+        return "counterFragments :: counterResult"
     }
 }

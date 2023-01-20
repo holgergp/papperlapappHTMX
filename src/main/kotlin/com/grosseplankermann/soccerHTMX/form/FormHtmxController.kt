@@ -7,11 +7,13 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.server.ResponseStatusException
 
 @Controller
+@RequestMapping("/form")
 class FormHtmxController() {
-    @GetMapping("/form") // Only called on a full page refresh, not an htmx request
+    @GetMapping("/") // Only called on a full page refresh, not an htmx request
     fun indexRequest(model: Model): String? {
         model.addAttribute("form", FormModel(""))
         return "form"
@@ -21,14 +23,14 @@ class FormHtmxController() {
     @HxRequest
     fun saveForm(formData: FormData, details: HtmxRequest?, model: Model): String? {
         model.addAttribute("form", FormModel(formData.title, "Save Successful"))
-        return "fragments :: formInput"
+        return "formFragments :: formInput"
     }
 
     @PostMapping("/validateForm")
     @HxRequest
     fun validateForm(formData: FormData, details: HtmxRequest?, model: Model): String? {
         model.addAttribute("form", FormModel(formData.title, "Validating"))
-        return "fragments :: formInput"
+        return "formFragments :: formInput"
     }
 
     @PostMapping("/throwError")

@@ -10,15 +10,16 @@
 
     <h1>Form Sample</h1>
     <div class="form">
-        <div th:insert="fragments :: form" th:remove="tag"/>
+        <div th:insert="formFragments :: form" th:remove="tag"/>
     </div>
 </div>
 </body>
 <script type="text/javascript" th:src="@{/webjars/htmx.org/dist/htmx.min.js}"></script>
 <script type="text/javascript">
-    document.addEventListener("htmx:responseError", (details) => {console.log(details)})
-
-
+    document.addEventListener("htmx:responseError", (details) => {
+        console.log("Ich kümmere mich in einem Event-Listener um einen HTTP Fehler.")
+        console.log(details)
+    })
 </script>
 
 

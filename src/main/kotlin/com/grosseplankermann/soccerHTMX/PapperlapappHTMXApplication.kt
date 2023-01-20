@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class CounterHTMXApplication
+class PapperlapappHTMXApplication
 
 fun main(args: Array<String>) {
-    runApplication<CounterHTMXApplication>(*args)
+    runApplication<PapperlapappHTMXApplication>(*args)
 }
