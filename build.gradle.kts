@@ -24,8 +24,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.github.wimdeblauwe:htmx-spring-boot-thymeleaf:2.0.0")
     implementation("org.springframework.boot:spring-boot-devtools")
-    implementation("org.webjars:webjars-locator:0.41")
-    implementation("org.webjars.npm:htmx.org:1.7.0")
+    implementation("org.webjars:webjars-locator:0.46")
+    implementation("org.webjars.npm:htmx.org:1.8.5")
     implementation("org.webjars.npm:sortablejs:1.8.3")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
