@@ -1,0 +1,6 @@
+package com.grosseplankermann.soccerHTMX
+
+import org.springframework.stereotype.Service
+
+@Service
+class SinglePageApplicationRepositoryManagerResolverStrategy
