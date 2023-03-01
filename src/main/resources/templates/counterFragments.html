@@ -1,9 +1,9 @@
 <div th:fragment="counterButtons" th:remove="tag">
     <div hx-post="/counter/increment" hx-swap="innerHTML" hx-target="#counterResult">
-        <div th:insert="counterFragments :: plusSign" th:remove="tag"/>
+        <div th:insert="~{counterFragments :: plusSign}" th:remove="tag"/>
     </div>
     <div hx-post="/counter/decrement" hx-swap="innerHTML" hx-target="#counterResult">
-        <div th:insert="counterFragments :: minusSign" th:remove="tag"/>
+        <div th:insert="~{counterFragments :: minusSign}" th:remove="tag"/>
     </div>
 </div>
 

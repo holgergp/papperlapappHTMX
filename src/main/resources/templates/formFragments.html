@@ -1,7 +1,7 @@
 <div th:fragment="form" class="form" th:remove="tag">
 
     <form hx-post="/form/saveForm" hx-swap="innerHTML" hx-target="#formInput">
-        <div th:insert="formFragments :: formInput" />
+        <div th:insert="~{formFragments :: formInput}" />
         <button type="submit">Submit</button>
         <button hx-post="/form/throwError">Throw Error</button>
     </form>
