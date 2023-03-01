@@ -1,4 +1,4 @@
 package com.grosseplankermann.soccerHTMX.form
 
-data class FormModel(val title: String, val validating: String = "")
-data class FormData(val title: String)
+data class OutgoingFormData(val title: String, val validating: String = "")
+data class IncomingFormData(val title: String)
