@@ -10,7 +10,7 @@
 
     <h1>Form Sample</h1>
     <div class="form">
-        <div th:insert="formFragments :: form" th:remove="tag"/>
+        <div th:insert="~{formFragments :: form}" th:remove="tag"/>
     </div>
 </div>
 </body>
