@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:hx="http://www.w3.org/1999/xhtml"
+      lang="en">
+<head>
+    <link th:href="@{/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="app">
+    <h1>Library</h1>
+    <ul>
+        <li th:each="book : ${books}">
+            <a th:href="@{/books/{isbn}(isbn=${book.isbn})}">
+                <img th:src="${book.coverURLSmall}"
+                     th:alt="${book.title}"/>
+                <span th:text="${book.title}">Mein Beispielbuch</span>
+            </a>
+
+            <button hx:get="@{/books/{isbn}(isbn=${book.isbn})}"
+                    hx-target="#book-details">
+                Show details via HTMX
+            </button>
+        </li>
+        <div id="book-details">
+        </div>
+    </ul>
+</div>
+</body>
+<script type="text/javascript" th:src="@{/webjars/htmx.org/dist/htmx.min.js}"></script>
+
+</html>

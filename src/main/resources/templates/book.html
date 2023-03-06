@@ -1,0 +1,20 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <link th:href="@{/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="app">
+    <div th:fragment="book-details">
+        <h1 th:text="${book.title}">Mein Beispielbuch</h1>
+        <h2>von <span th:text="${book.author}">Beispielautor</span></h2>
+        <img th:src="${book.coverURLMedium}"
+             th:alt="${book.title}"/>
+    </div>
+</div>
+</body>
+<script type="text/javascript" th:src="@{/webjars/htmx.org/dist/htmx.min.js}"></script>
+
+</html>
