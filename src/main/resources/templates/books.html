@@ -8,18 +8,19 @@
 <body>
 <div class="app">
     <h1>Library</h1>
-    <ul>
+    <ul id="booklist">
         <li th:each="book : ${books}">
             <a th:href="@{/books/{isbn}(isbn=${book.isbn})}">
                 <img th:src="${book.coverURLSmall}"
                      th:alt="${book.title}"/>
                 <span th:text="${book.title}">Mein Beispielbuch</span>
             </a>
-
+<!--
             <button hx:get="@{/books/{isbn}(isbn=${book.isbn})}"
                     hx-target="#book-details">
                 Show details via HTMX
             </button>
+            -->
         </li>
         <div id="book-details">
         </div>

@@ -34,3 +34,33 @@ ul {
     font-weight: bold;
     font-size: 20px;
 }
+
+ul#booklist {
+    font-family: Roboto, sans-serif;
+}
+ul#booklist li  {
+    margin: 1em;
+    border: 3px ridge lightskyblue;
+    vertical-align: center;
+}
+ul#booklist li:hover {
+    background-color: lightskyblue;
+}
+ul#booklist li a {
+    text-align: left;
+    text-decoration: none;
+    margin: .5em;
+}
+ul#booklist li img{
+    float: left;
+    margin: .3em;
+}
+ul#booklist li span {
+    display: block;
+}
+
+#book-details img {
+    border-width: 3px;
+    border-color: lightblue;
+    border-style: inset;
+}

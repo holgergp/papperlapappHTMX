@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="app">
-    <div th:fragment="book-details">
+    <div th:fragment="book-details" id="book-details">
         <h1 th:text="${book.title}">Mein Beispielbuch</h1>
         <h2>von <span th:text="${book.author}">Beispielautor</span></h2>
         <img th:src="${book.coverURLMedium}"
