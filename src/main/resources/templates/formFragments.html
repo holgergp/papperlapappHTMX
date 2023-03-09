@@ -14,7 +14,7 @@
            hx-post="/form/validateForm"
            th:value="${form.title}"
            hx-trigger="keyup"
-           hx-sync="closest form:drop"
+           hx-sync="closest form:abort"
            hx-swap="innerHTML"
            hx-target="#formInput"
     >

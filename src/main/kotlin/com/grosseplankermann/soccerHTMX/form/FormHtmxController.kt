@@ -30,6 +30,7 @@ class FormHtmxController() {
     @HxRequest
     fun validateForm(formData: IncomingFormData, details: HtmxRequest?, model: Model): String? {
         model.addAttribute("form", OutgoingFormData(formData.title, "Validating"))
+        Thread.sleep(2000)
         return "formFragments :: formInput"
     }
 
