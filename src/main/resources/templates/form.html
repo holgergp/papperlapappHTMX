@@ -16,7 +16,7 @@
 </body>
 <script type="text/javascript" th:src="@{/webjars/htmx.org/dist/htmx.min.js}"></script>
 <script type="text/javascript">
-    document.addEventListener("htmx:responseError", (details) => {
+    htmx.on("htmx:responseError", (details) => {
         console.log("Ich kümmere mich in einem Event-Listener um einen HTTP Fehler.")
         console.log(details)
     })
