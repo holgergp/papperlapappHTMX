@@ -1,4 +1,4 @@
-<div th:fragment="counterButtons" th:remove="tag">
+<div th:fragment="counterButtonsFragment" th:remove="tag">
     <div hx-post="/counter/increment" hx-swap="innerHTML" hx-target="#counterResult">
         <div th:insert="~{counterFragments :: plusSign}" th:remove="tag"/>
     </div>
@@ -7,7 +7,7 @@
     </div>
 </div>
 
-<div th:fragment="counterResult">
+<div th:fragment="counterResultFragment">
     <div id="counterResult" th:text="${counter.value}" class="counterResult"
          th:classappend="${counter.isPositive} ? 'positiveCounter':'negativeCounter'">
     </div>

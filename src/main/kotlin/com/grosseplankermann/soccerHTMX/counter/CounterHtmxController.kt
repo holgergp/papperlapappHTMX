@@ -22,7 +22,7 @@ class CounterHtmxController(val repository: CounterHtmxRepository) {
     fun increment(details: HtmxRequest?, model: Model): String? {
         val counter = repository.storeIncrement()
         model.addAttribute("counter", counter)
-        return "counterFragments :: counterResult"
+        return "counterFragments :: counterResultFragment"
     }
 
     @PostMapping("/decrement")
@@ -30,6 +30,6 @@ class CounterHtmxController(val repository: CounterHtmxRepository) {
     fun decrement(details: HtmxRequest?, model: Model): String? {
         val counter = repository.storeDecrement()
         model.addAttribute("counter", counter)
-        return "counterFragments :: counterResult"
+        return "counterFragments :: counterResultFragment"
     }
 }
