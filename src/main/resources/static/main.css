@@ -69,6 +69,11 @@ ul#booklist li span {
     display: block;
 }
 
+li.htmx-swapping {
+    opacity: 0;
+    transition: opacity 2s ease-out;
+}
+
 #book-details {
     width: 45%;
     float: right;

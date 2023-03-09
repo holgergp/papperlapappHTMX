@@ -27,6 +27,12 @@
                     hx-target="this"
                     hx-swap="outerHTML">bearbeiten
             </button>
+            <button hx-confirm="Bist du sicher?"
+                    hx:delete="@{/books/{isbn}(isbn=${book.isbn})}"
+                    hx-swap="outerHTML swap:1s"
+                    hx-target="closest  li">
+                löschen
+            </button>
         </li>
     </ul>
     <div id="book-details-placeholder">

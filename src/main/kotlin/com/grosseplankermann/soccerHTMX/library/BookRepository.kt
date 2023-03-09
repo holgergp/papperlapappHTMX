@@ -28,4 +28,8 @@ class BookRepository(
         add(book)
     }
 
+    fun delete(isbn: ISBN) {
+        books.remove(findByISBN(isbn))
+    }
+
 }
