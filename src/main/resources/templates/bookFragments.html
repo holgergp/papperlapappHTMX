@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:hx="http://www.w3.org/1999/xhtml"
+      lang="en">
+<head>
+    <link th:href="@{/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="app library">
+    <h1>Library</h1>
+    <div th:fragment="book-form">
+        <form hx:put="@{/books/{isbn}(isbn=${book.isbn})}"
+              hx-target="this"
+              hx-swap="outerHTML">
+            <label>Titel:
+                <input name="title" th:value="${book.title}"/>
+            </label>
+            <label>ISBN:
+                <input name="isbn" th:value="${book.isbn}"/>
+            </label>
+            <label>Autor:
+                <input name="author" th:value="${book.author}"/>
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+<script type="text/javascript" th:src="@{/webjars/htmx.org/dist/htmx.min.js}"></script>
+
+</html>

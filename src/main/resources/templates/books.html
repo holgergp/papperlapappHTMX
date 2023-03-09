@@ -6,25 +6,31 @@
     <link th:href="@{/main.css}" rel="stylesheet"/>
 </head>
 <body>
-<div class="app">
+<div class="app library">
     <h1>Library</h1>
-    <ul id="booklist">
+    <ul id="booklist"
+        th:fragment="booklist"
+        hx-trigger="updatedBook from:body"
+        hx-swap="outerHTML"
+        hx-get="/books">
         <li th:each="book : ${books}">
-            <a th:href="@{/books/{isbn}(isbn=${book.isbn})}">
+            <a th:href="@{/books/{isbn}(isbn=${book.isbn})}"
+               hx-boost="true"
+               hx-swap="innerHTML"
+               hx-target="#book-details-placeholder">
                 <img th:src="${book.coverURLSmall}"
                      th:alt="${book.title}"/>
                 <span th:text="${book.title}">Mein Beispielbuch</span>
             </a>
-<!--
-            <button hx:get="@{/books/{isbn}(isbn=${book.isbn})}"
-                    hx-target="#book-details">
-                Show details via HTMX
+            <button th:fragment="edit-button"
+                    hx:get="@{/books/{isbn}/edit(isbn=${book.isbn})}"
+                    hx-target="this"
+                    hx-swap="outerHTML">bearbeiten
             </button>
-            -->
         </li>
-        <div id="book-details">
-        </div>
     </ul>
+    <div id="book-details-placeholder">
+    </div>
 </div>
 </body>
 <script type="text/javascript" th:src="@{/webjars/htmx.org/dist/htmx.min.js}"></script>

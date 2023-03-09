@@ -9,7 +9,11 @@ data class Book(val title: String, val isbn: ISBN, val author: String) {
     }
 }
 
-data class ISBN(val number: String) {
+data class ISBN(val number: String) : Comparable<ISBN> {
+    override fun compareTo(other: ISBN): Int {
+        return Comparator.comparing(ISBN::number).compare(this, other)
+    }
+
     override fun toString(): String {
         return number
     }

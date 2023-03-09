@@ -35,21 +35,31 @@ ul {
     font-size: 20px;
 }
 
+.library {
+    font-family: Roboto, sans-serif;
+}
+
 ul#booklist {
+    width: 50%;
+    float: left;
     font-family: Roboto, sans-serif;
 }
 ul#booklist li  {
-    margin: 1em;
-    border: 3px ridge lightskyblue;
     vertical-align: center;
-}
-ul#booklist li:hover {
-    background-color: lightskyblue;
+    display: block;
 }
 ul#booklist li a {
+    display: block;
+    height: 70px;
+    color: black;
     text-align: left;
     text-decoration: none;
-    margin: .5em;
+    margin: 1em;
+    border: 3px ridge lightskyblue;
+}
+ul#booklist li a:hover {
+    color: white;
+    background-color: lightskyblue;
 }
 ul#booklist li img{
     float: left;
@@ -59,6 +69,12 @@ ul#booklist li span {
     display: block;
 }
 
+#book-details {
+    width: 45%;
+    float: right;
+
+    border: 2px ridge lightyellow;
+}
 #book-details img {
     border-width: 3px;
     border-color: lightblue;
