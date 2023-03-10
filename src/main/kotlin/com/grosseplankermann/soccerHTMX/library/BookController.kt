@@ -1,11 +1,11 @@
 package com.grosseplankermann.soccerHTMX.library
 
 import io.github.wimdeblauwe.hsbt.mvc.HxRequest
+import io.github.wimdeblauwe.hsbt.mvc.HxTrigger
+import org.springframework.http.MediaType
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.*
 
 
 @Controller
@@ -18,6 +18,13 @@ class BookController(val repository: BookRepository) {
         return "books"
     }
 
+    @GetMapping
+    @HxRequest
+    fun allHtmx(model: Model): String? {
+        model.addAttribute("books", repository.getAll())
+        return "books :: booklist"
+    }
+
     @GetMapping("/{isbn}") // Only called on a full page refresh, not an htmx request
     fun one(@PathVariable isbn: ISBN, model: Model): String? {
         model.addAttribute("book", repository.findByISBN(isbn))
@@ -28,7 +35,28 @@ class BookController(val repository: BookRepository) {
     @HxRequest
     fun oneHtmx(@PathVariable isbn: ISBN, model: Model): String? {
         model.addAttribute("book", repository.findByISBN(isbn))
-        return "book :: book-details"
+        return "book :: book-details    "
     }
 
+    @GetMapping("/{isbn}/edit")
+    @HxRequest
+    fun editHtmx(@PathVariable isbn: ISBN, model: Model): String? {
+        model.addAttribute("book", repository.findByISBN(isbn))
+        return "bookFragments :: book-form"
+    }
+
+    @PutMapping("/{isbn}")
+    @HxRequest
+    @HxTrigger("updatedBook")
+    fun updateHtmx(book: Book, @PathVariable isbn: ISBN, model: Model): String? {
+        repository.update(isbn, book)
+        return "books :: edit-button"
+    }
+
+    @DeleteMapping(path= ["/{isbn}"], produces = [MediaType.TEXT_HTML_VALUE])
+    @ResponseBody
+    fun deleteHtmx(@PathVariable isbn: ISBN): String? {
+        repository.delete(isbn)
+        return ""
+    }
 }
