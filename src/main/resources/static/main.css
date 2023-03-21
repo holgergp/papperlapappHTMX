@@ -1,3 +1,8 @@
+button {
+    background-color: transparent;
+    border: none;
+}
+
 .app {
     text-align: center;
 }
